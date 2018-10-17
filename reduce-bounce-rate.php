@@ -26,7 +26,6 @@ function rbr_load_scripts($hook) {
     if ($hook != $rbr_settings_page)
         return;
     wp_enqueue_style('rbr-style', plugins_url('reduce-bounce-rate/css/rbr-style.css', dirname(__FILE__)));
-    wp_enqueue_script('rbr-jquery', plugins_url('reduce-bounce-rate/js/rbr-jquery.js', dirname(__FILE__)));
 }
 add_action('admin_enqueue_scripts', 'rbr_load_scripts');
 
@@ -63,31 +62,31 @@ function rbr_options() {
     if (isset($_POST['rbr_show']) == 'go') {
         $rbrpause = $_POST['rbr_pause'];
         update_option('rbr_pause', $rbrpause);
-        
+
         $rbrdisableadmin = $_POST['rbr_disableadmin'];
         update_option('rbr_disableadmin', $rbrdisableadmin);
-        
+
         $rbrtype = $_POST['rbr_type'];
         update_option('rbr_type', $rbrtype);
-        
+
         $rbrplace = $_POST['rbr_place'];
         update_option('rbr_place', $rbrplace);
-        
+
         $rbrscroll = $_POST['rbr_scroll'];
         update_option('rbr_scroll', $rbrscroll);
-        
+
         $rbrscrollpercentage = $_POST['rbr_scrollpercentage'];
         update_option('rbr_scrollpercentage', $rbrscrollpercentage);
-        
+
         $rbrscrollpercentagenumber = $_POST['rbr_scrollpercentagenumber'];
         update_option('rbr_scrollpercentagenumber', $rbrscrollpercentagenumber);
-        
+
         $rbrnoevent = $_POST['rbr_noevent'];
         update_option('rbr_noevent', $rbrnoevent);
-        
+
         $rbrnomaxtime = $_POST['rbr_nomaxtime'];
         update_option('rbr_nomaxtime', $rbrnomaxtime);
-        
+
         $rbrevent = $_POST['rbr_event'];
         //clean the input, only integer numbers are allowed here
         preg_match_all('/(\d+)(\D|\b|$)/smUi', $rbrevent, $m, PREG_PATTERN_ORDER);
@@ -98,7 +97,7 @@ function rbr_options() {
         }
         //clean the input, only integer numbers are allowed here
         update_option('rbr_event', $rbrevent);
-        
+
         $rbrtime = $_POST['rbr_time'];
         //clean the input, only integer numbers are allowed here
         preg_match_all('/(\d+)(\D|\b|$)/smUi', $rbrtime, $m, PREG_PATTERN_ORDER);
@@ -152,7 +151,7 @@ Yes</label>
 No (Default)</label>
 <div class="jbut">Info</div>
 <div class="jslid">
-<p>If you set this option to yes, the plugin will be disabled. Data will still being send to Google Analytics if the GA tracking code is present on your website.</p> 
+<p>If you set this option to yes, the plugin will be disabled. Data will still being send to Google Analytics if the GA tracking code is present on your website.</p>
 <p>If you don't want any tracking data to be send to GA, please remove the tracking code itself.</p>
 </div>
 <h2>Disable for Administrators only</h2>
@@ -174,8 +173,8 @@ Yes</label>
 No (Default)</label>
 <div class="jbut">Info</div>
 <div class="jslid">
-<p>Some people automatically remove the Google Analytics tracking code for users with an Administrator role. 
-When someone doesn’t track Administrators, the code of this plugin will still show up in the page’s source code.</p> 
+<p>Some people automatically remove the Google Analytics tracking code for users with an Administrator role.
+When someone doesn’t track Administrators, the code of this plugin will still show up in the page’s source code.</p>
 <p>To remove the code when you don’t track Administrators, choose Yes. The plugin will work for visitors with any other role.</p>
 <p>To use the plugin for all visitors (including Administrators), choose No.</p>
 </div>
@@ -408,7 +407,7 @@ function rbr_scripts() {
             wp_enqueue_script('rbr_scripts', plugins_url('js/gajs.js', __FILE__), array(
                 'jquery'
             ), '', ($rbrplace == 'footer'));
-            
+
         } elseif (get_option('rbr_pause') == "pauseno" && $rbrtype == 'analyticsjs') {
             $rbrplace = get_option('rbr_place');
             wp_enqueue_script('rbr_scripts', plugins_url('js/analyticsjs.js', __FILE__), array(
@@ -420,7 +419,7 @@ function rbr_scripts() {
                 'jquery'
             ), '', ($rbrplace == 'footer'));
         }
-        
+
         else {
         }
     }

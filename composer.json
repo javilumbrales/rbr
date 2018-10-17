@@ -1,6 +1,6 @@
 {
-    "name": "javilumbrales/reduce-bounce-rate",
-    "description": "Reduce Boune Rate",
+    "name": "javilumbrales/rbr",
+    "description": "WP RBR Plugin",
     "type": "wordpress-plugin",
     "license": "GPLv3",
     "authors": [

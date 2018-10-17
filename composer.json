@@ -1,0 +1,16 @@
+{
+    "name": "javilumbrales/reduce-bounce-rate",
+    "description": "Reduce Boune Rate",
+    "type": "wordpress-plugin",
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Javier",
+            "email": "info@lumbrales-software.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    }
+}
+

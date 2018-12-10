@@ -29,22 +29,21 @@ function rbr_load_scripts($hook) {
 }
 add_action('admin_enqueue_scripts', 'rbr_load_scripts');
 
-$rbr_defaults = array(
-    'rbr_pause' => 'pauseno',
-    'rbr_disableadmin' => 'disableadminno',
-    'rbr_type' => 'analyticsjs',
-    'rbr_place' => 'footer',
-    'rbr_scroll' => 'scrollno',
-    'rbr_scrollpercentage' => 'scrollpercentageno',
-    'rbr_scrollpercentagenumber' => 25,
-    'rbr_event' => 10,
-    'rbr_noevent' => '',
-    'rbr_nomaxtime' => '',
-    'rbr_time' => 900
-);
 
 function rbr_init() {
-    global $rbr_defaults;
+    $rbr_defaults = array(
+        'rbr_pause' => 'pauseno',
+        'rbr_disableadmin' => 'disableadminno',
+        'rbr_type' => 'analyticsjs',
+        'rbr_place' => 'footer',
+        'rbr_scroll' => 'scrollno',
+        'rbr_scrollpercentage' => 'scrollpercentageno',
+        'rbr_scrollpercentagenumber' => 25,
+        'rbr_event' => 10,
+        'rbr_noevent' => '',
+        'rbr_nomaxtime' => '',
+        'rbr_time' => 900
+    );
     foreach ($rbr_defaults as $optName => $optDefault) {
         if (!get_option($optName)) {
             update_option($optName, $optDefault);
